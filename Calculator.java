@@ -39,10 +39,13 @@ public class Calculator {
         }
 
         // Если оба числа при конвертации вернули -1, то переходим к арабским цифрам
-        if (res == 0) {
-
-            number1 = Integer.parseInt(num1);
-            number2 = Integer.parseInt(num2);
+        if (res == 0) {            
+            try {
+                number1 = Integer.parseInt(num1);
+                number2 = Integer.parseInt(num2);
+            } catch (NumberFormatException e) {
+                throw new NumberFormatException("Некорректный ввод!");
+            }
 
             if (number1 < 0 || number2 < 0) {
                 throw new InputMismatchException("Вводимое число не может быть меньше нуля!");
